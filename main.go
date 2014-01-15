@@ -17,13 +17,13 @@ func main() {
 	// Re-slice the byte slice.
 	s := b[:10]
 
-	// Length of the slice is short but Capacity of the slice is long.
+	// Length of the slice is short but capacity of the slice is long.
 	print("Before", s)
 
 	// Create a new slice.
 	s = append([]byte{}, s...)
 
-	// Both length and capaticy of the slice are short.
+	// Both length and capacity of the slice are short.
 	print("After ", s)
 }
 
