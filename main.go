@@ -6,7 +6,8 @@ import (
 )
 
 const (
-	filePath string = "./sample.txt"
+	filePath      string = "./sample.txt"
+	sliceEndPoint int    = 10
 )
 
 func main() {
@@ -29,18 +30,15 @@ func reslice() []byte {
 	b, _ := ioutil.ReadFile(filePath)
 
 	// Re-slice the byte slice.
-	s := b[:10]
+	s := b[:sliceEndPoint]
 
 	// Return the slice.
 	return s
 }
 
 func create() []byte {
-	// Read the file and get a byte slice.
-	b, _ := ioutil.ReadFile(filePath)
-
 	// Re-slice the byte slice.
-	s := b[:10]
+	s := reslice()
 
 	// Create a new slice from the byte slice.
 	s = append([]byte{}, s...)
