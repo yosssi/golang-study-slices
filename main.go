@@ -3,7 +3,6 @@ package main
 import (
 	"fmt"
 	"io/ioutil"
-	"regexp"
 )
 
 const (
@@ -11,13 +10,12 @@ const (
 )
 
 func main() {
-	digitRegexp := regexp.MustCompile("[0-9]+")
 
 	// Read the file and get a byte slice.
 	b, _ := ioutil.ReadFile(filePath)
 
-	// Re-slice the byte slice by getting the consecutive numeric digits.
-	s := digitRegexp.Find(b)
+	// Re-slice the byte slice.
+	s := b[:10]
 
 	// Length of the slice is short but Capacity of the slice is long.
 	print("Before", s)
