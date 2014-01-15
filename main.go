@@ -11,20 +11,42 @@ const (
 
 func main() {
 
+	// Re-slice the byte slice.
+	s := reslice()
+
+	// Length of the slice is short but capacity of the slice is long.
+	print("Before", s)
+
+	// Create a new slice from the byte slice.
+	s = create()
+
+	// Both length and capacity of the slice are short.
+	print("After ", s)
+}
+
+func reslice() []byte {
 	// Read the file and get a byte slice.
 	b, _ := ioutil.ReadFile(filePath)
 
 	// Re-slice the byte slice.
 	s := b[:10]
 
-	// Length of the slice is short but capacity of the slice is long.
-	print("Before", s)
+	// Return the slice.
+	return s
+}
 
-	// Create a new slice.
+func create() []byte {
+	// Read the file and get a byte slice.
+	b, _ := ioutil.ReadFile(filePath)
+
+	// Re-slice the byte slice.
+	s := b[:10]
+
+	// Create a new slice from the byte slice.
 	s = append([]byte{}, s...)
 
-	// Both length and capacity of the slice are short.
-	print("After ", s)
+	// Return the slice.
+	return s
 }
 
 func print(label string, s []byte) {
